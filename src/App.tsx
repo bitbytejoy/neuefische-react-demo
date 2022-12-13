@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Greeting from "./Greeting";
 
 function App() {
+  const greeting1Props = {
+    name: "Muslim",
+    age: 30,
+  };
+
+  const onClick = (name: string) => {
+    alert(`Es wurde ${name} geclickt`);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Greeting {...greeting1Props} onClick={onClick}>Extra body</Greeting>
+      <Greeting name="Adrian" onClick={onClick}>
+        <div>
+          <h1>What's up?</h1>
+        </div>
+      </Greeting>
+      <Greeting name="Doreen" age={30} onClick={onClick}>
+        <button>Oha</button>
+      </Greeting>
     </div>
   );
 }
